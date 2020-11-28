@@ -11,7 +11,7 @@ function UpdateCourse() {
               <div class="course--header">
                 <h4 class="course--label">Course</h4>
                 <div><input id="title" name="title" type="text" class="input-title course--title--input" placeholder="Course title..."
-                    value="Build a Basic Bookcase"></div>
+                    value="Build a Basic Bookcase"></input></div>
                 <p>By Joe Smith</p>
               </div>
               <div class="course--description">
@@ -34,7 +34,7 @@ The specifications that follow will produce a bookcase with overall dimensions o
                   <li class="course--stats--list--item">
                     <h4>Estimated Time</h4>
                     <div><input id="estimatedTime" name="estimatedTime" type="text" class="course--time--input"
-                        placeholder="Hours" value="14 hours"></div>
+                        placeholder="Hours" value="14 hours"></input></div>
                   </li>
                   <li class="course--stats--list--item">
                     <h4>Materials Needed</h4>

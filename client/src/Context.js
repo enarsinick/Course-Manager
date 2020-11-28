@@ -13,15 +13,10 @@ export class Provider extends Component {
   
 
   render() {
-    const { authenticatedUser } = this.state;
+    // const { authenticatedUser } = this.state;
     
     const value = {
-      authenticatedUser,
-      data: this.data,
-      actions: {
-        signIn: this.signIn,
-        signOut: this.signOut,
-      }
+      data: this.data
     };
 
     return (
