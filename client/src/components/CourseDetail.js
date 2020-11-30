@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from "react-router-dom";
 
 export default class CourseDetail extends Component {
 
@@ -19,23 +20,45 @@ export default class CourseDetail extends Component {
             courseDetails: response,
             owner: response.owner,
           })
+          
         } else {
           this.props.history.push('/errors');
         }
       })
       .catch(err => {
         console.log('Error with getting course details', err);
-      }); 
+      });
+  }
+
+  delete = () => {
+    const {context} = this.props;
+    context.data.deleteCourse(this.state.courseDetails.id, context.authenticatedUser.emailAddress, context.authenticatedUser.password)
+      .then(errors => {
+        if (errors.length) {
+          console.log('Error with deletion process', errors)
+        } else {
+          console.log('Course successfull deleted');
+          this.props.history.push('/');
+        }
+      })
+      .catch(err => {
+        console.log(err)
+      }) 
   }
   
   render() {
-    console.log(this.state.courseDetails)
+    
     return (
       <div>
       <div className="actions--bar">
         <div className="bounds">
-          <div className="grid-100"><span><a className="button" href="update-course.html">Update Course</a><a className="button" href="#">Delete Course</a></span><a
-              className="button button-secondary" href="index.html">Return to List</a></div>
+          <div className="grid-100">
+            <span>
+              <Link className="button" to={`/courses/${this.state.courseDetails.id}/update`}>Update Course</Link>
+              <button className="button" onClick={this.delete}>Delete Course</button>
+            </span>
+            <Link className="button button-secondary" to={'/'}>Return to List</Link>
+          </div>
         </div>
       </div>
       <div className="bounds course--detail">
