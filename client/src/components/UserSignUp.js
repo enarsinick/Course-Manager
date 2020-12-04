@@ -123,7 +123,7 @@ export default class UserSignUp extends Component {
       })
       .catch( err => {
         console.log('Seems to have been error with the sign up process...', err)
-        this.props.history.push('error');
+        this.props.history.push('/error');
       });
   }
 

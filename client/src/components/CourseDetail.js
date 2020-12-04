@@ -22,7 +22,8 @@ export default class CourseDetail extends Component {
           })
           
         } else {
-          this.props.history.push('/errors');
+          console.log(response.errors)
+          // this.props.history.push('/errorssss'); // for some reason this causes the new course button to throw an error?
         }
       })
       .catch(err => {
