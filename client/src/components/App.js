@@ -1,7 +1,8 @@
 import React from 'react';
 import { 
   BrowserRouter,
-  Route
+  Route, 
+  Switch
 } from 'react-router-dom';
 
 // Import components
@@ -30,13 +31,15 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <HeaderWithContext />
-        <Route exact path="/" component={CoursesWithContext}/>
-        <Route path="/courses/create" component={CreateCourseWithContext}/>
-        <Route path="/courses/:id/update" component={UpdateCourse}/>
-        <Route path="/courses/:id" component={CourseDetailWithContext}/>
-        <Route path="/signin" component={UserSignInWithContext}/>
-        <Route path="/signup" component={UserSignUpWithContext}/>
-        <Route path="/signout" component={UserSignOutWithContext}/>
+        <Switch>
+          <Route exact path="/" component={CoursesWithContext}/>
+          <Route path="/courses/create" component={CreateCourseWithContext}/>
+          <Route path="/courses/:id/update" component={UpdateCourse}/>
+          <Route path="/courses/:id" component={CourseDetailWithContext}/>
+          <Route path="/signin" component={UserSignInWithContext}/>
+          <Route path="/signup" component={UserSignUpWithContext}/>
+          <Route path="/signout" component={UserSignOutWithContext}/>
+        </Switch>
       </div>
     </BrowserRouter>
   );
