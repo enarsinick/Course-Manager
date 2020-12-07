@@ -25,6 +25,7 @@ const CoursesWithContext = withContext(Courses);
 const HeaderWithContext = withContext(Header);
 const CourseDetailWithContext = withContext(CourseDetail);
 const CreateCourseWithContext = withContext(CreateCourse);
+const UpdateCourseWithContext = withContext(UpdateCourse);
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={CoursesWithContext}/>
           <Route path="/courses/create" component={CreateCourseWithContext}/>
-          <Route path="/courses/:id/update" component={UpdateCourse}/>
+          <Route path="/courses/:id/update" component={UpdateCourseWithContext}/>
           <Route path="/courses/:id" component={CourseDetailWithContext}/>
           <Route path="/signin" component={UserSignInWithContext}/>
           <Route path="/signup" component={UserSignUpWithContext}/>
