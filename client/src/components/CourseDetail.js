@@ -48,16 +48,25 @@ export default class CourseDetail extends Component {
   }
   
   render() {
+
+    const { context } = this.props;
+    const authUser = context.authenticatedUser;
     
     return (
       <div>
       <div className="actions--bar">
         <div className="bounds">
           <div className="grid-100">
-            <span>
-              <Link className="button" to={`/courses/${this.state.courseDetails.id}/update`}>Update Course</Link>
-              <button className="button" onClick={this.delete}>Delete Course</button>
-            </span>
+              {authUser ?
+                <React.Fragment>
+                  <span>
+                    <Link className="button" to={`/courses/${this.state.courseDetails.id}/update`}>Update Course</Link>
+                    <button className="button" onClick={this.delete}>Delete Course</button>
+                  </span>
+                </React.Fragment>
+                :
+                null
+              }
             <Link className="button button-secondary" to={'/'}>Return to List</Link>
           </div>
         </div>
