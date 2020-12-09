@@ -51,13 +51,14 @@ export default class CourseDetail extends Component {
 
     const { context } = this.props;
     const authUser = context.authenticatedUser;
+    const courseOwnerID = this.state.courseDetails.userId;
     
     return (
       <div>
       <div className="actions--bar">
         <div className="bounds">
           <div className="grid-100">
-              {authUser ?
+              {authUser.id === courseOwnerID ?
                 <React.Fragment>
                   <span>
                     <Link className="button" to={`/courses/${this.state.courseDetails.id}/update`}>Update Course</Link>
