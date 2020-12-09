@@ -16,7 +16,6 @@ import CreateCourse from './CreateCourse';
 import UpdateCourse from './UpdateCourse';
 import CourseDetail from './CourseDetail';
 import PrivateRoute from '../PrivateRoute';
-import Course from './Course';
 
 // Componenets with context
 const UserSignUpWithContext = withContext(UserSignUp);
