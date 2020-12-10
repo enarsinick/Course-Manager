@@ -1,3 +1,5 @@
 /client/node_modules
+/client/.eslintcache
 /api/node_modules
+/api/fsjstd-restapi.db
 /course_content

@@ -58,6 +58,7 @@ export default class CreateCourse extends Component {
       })
       .catch(err => {
         console.log('Issue with creating a course:', err)
+        this.props.history.push('/error');
       })
     
   }

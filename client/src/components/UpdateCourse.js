@@ -56,7 +56,8 @@ export default class UpdateCourse extends Component {
         }
       })
       .catch(err => {
-        console.log('Issue with updating the course', err)
+        console.log('Issue with updating the course', err);
+        this.props.history.push('/error');
       })
   }
 
@@ -65,7 +66,7 @@ export default class UpdateCourse extends Component {
     const { id } = this.props.match.params;
     context.data.getCourseDetails(id)
       .then(response => {
-        if (response) {
+        if (response && response.userId === context.authenticatedUser.id) {
           this.setState({
             userId: response.userId,
             firstName: response.owner.firstName,
@@ -77,14 +78,14 @@ export default class UpdateCourse extends Component {
             materialsNeeded: response.materialsNeeded,
             password: context.authenticatedUser.password,
           })
-          
         } else {
-          console.log(response.errors)
-          this.props.history.push('/errors');
+          console.log(response.errors);
+          this.props.history.push('/forbidden');
         }
       })
       .catch(err => {
         console.log('Error with getting course details', err);
+        this.props.history.push('/notfound');
       });
   }
 

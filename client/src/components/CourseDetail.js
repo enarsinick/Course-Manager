@@ -24,11 +24,12 @@ export default class CourseDetail extends Component {
           
         } else {
           console.log(response.errors)
-          this.props.history.push('/errors');
+          this.props.history.push('/notfound');
         }
       })
       .catch(err => {
         console.log('Error with getting course details', err);
+        this.props.history.push('/error');
       });
   }
 
@@ -45,6 +46,7 @@ export default class CourseDetail extends Component {
       })
       .catch(err => {
         console.log(err)
+        this.props.history.push('/error');
       }) 
   }
   
