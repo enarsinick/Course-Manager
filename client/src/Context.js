@@ -35,6 +35,8 @@ export class Provider extends Component {
     );
   }
 
+  // Sign the user in if credenetials are correct
+  // Also sets the user into cookie storage
   signIn = async (emailAddress, password) => {
     const user = await this.data.getUser(emailAddress, password);
     if (user !== null) {
@@ -48,7 +50,8 @@ export class Provider extends Component {
     }
     return user;
   }
-
+  
+  // Signs the user out and removes from cookie storage
   signOut = () => {
     this.setState({authenticatedUser: null});
     Cookies.remove('authenticatedUser');

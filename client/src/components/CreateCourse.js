@@ -31,6 +31,7 @@ export default class CreateCourse extends Component {
     this.props.history.push('/');
   }
 
+  // Creates a course but only if the user is logged in to the app
   submit = () => {
     const {context} = this.props;
 

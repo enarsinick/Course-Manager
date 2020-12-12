@@ -62,6 +62,8 @@ export default class UserSignIn extends Component {
     });
   }
 
+  // Signs the user into the application and redirects to the page
+  // they were just using/came from
   submit = () => {
     const { context } = this.props;
     const { from } = this.props.location.state || { from: { pathname: '/' } };
@@ -72,6 +74,7 @@ export default class UserSignIn extends Component {
           this.setState(() => {
             return {errors: ['Sign in was unsuccessful']};
           })
+          this.state.history.goBack();
         } else {
           this.props.history.push(from);
           console.log(`Successfully logged in ${emailAddress}`);

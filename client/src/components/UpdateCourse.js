@@ -31,6 +31,9 @@ export default class UpdateCourse extends Component {
     this.props.history.goBack();
   }
 
+  // Updates the course with all the data from the form field
+  // but only if the user is logged in and owns the course
+
   submit = () => {
     const {context} = this.props;
     const { id } = this.props.match.params;
@@ -61,6 +64,8 @@ export default class UpdateCourse extends Component {
       })
   }
 
+  // Get the details from the DB for the course and add it to
+  // the form fields ready to be edited by auth user
   componentDidMount() {
     const { context } = this.props;
     const { id } = this.props.match.params;
@@ -92,7 +97,7 @@ export default class UpdateCourse extends Component {
 
   render() {
     return (
-      <div class="bounds course--detail">
+      <div className="bounds course--detail">
           <h1>Update Course</h1>
           <div>
             <Form

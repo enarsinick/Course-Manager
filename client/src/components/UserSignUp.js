@@ -89,6 +89,7 @@ export default class UserSignUp extends Component {
     });
   }
 
+  // Signs user up to app
   submit = () => {  
     const { context } = this.props;
 

@@ -10,29 +10,33 @@ export default class CourseDetail extends Component {
     },
   }
   
-
+  // Once compondent Mounts, get the course details based on URL params
   componentDidMount() {
     const { context } = this.props;
     const { id } = this.props.match.params;
     context.data.getCourseDetails(id)
       .then(response => {
         if (response) {
+          // Once detaisl are retrieved, add them to state
           this.setState({
             courseDetails: response,
             owner: response.owner,
           })
           
         } else {
+          // If no details are found, redirect user
           console.log(response.errors)
           this.props.history.push('/notfound');
         }
       })
       .catch(err => {
+        // If error occured redirect
         console.log('Error with getting course details', err);
         this.props.history.push('/error');
       });
   }
 
+  // Delete the current course from the DB if the user is authenticated/logged in and owns the course
   delete = () => {
     const {context} = this.props;
     context.data.deleteCourse(this.state.courseDetails.id, context.authenticatedUser.emailAddress, context.authenticatedUser.password)
@@ -52,16 +56,22 @@ export default class CourseDetail extends Component {
   
   render() {
 
+    // Check if the user logged in owns the current course on the 
+    // page, if so then display the course editing buttons
     const { context } = this.props;
-    const authUser = context.authenticatedUser;
-    const courseOwnerID = this.state.courseDetails.userId;
+    let authUser = false;
+    if (context.authenticatedUser) {
+      if (context.authenticatedUser.id === this.state.courseDetails.userId) {
+        authUser = true;
+      }
+    }
     
     return (
       <div>
       <div className="actions--bar">
         <div className="bounds">
           <div className="grid-100">
-              {authUser.id === courseOwnerID ?
+              {authUser ?
                 <React.Fragment>
                   <span>
                     <Link className="button" to={`/courses/${this.state.courseDetails.id}/update`}>Update Course</Link>

@@ -38,6 +38,7 @@ export default class Data {
     }
   }
 
+  // Get the course details based on the ID provided
   async getCourseDetails(id) {
     const response = await this.api(`/courses/${id}`, 'GET');
     if (response.status === 200) {
@@ -51,6 +52,7 @@ export default class Data {
     }
   }
 
+  // Get a user based on the email address and password provided
   async getUser(emailAddress, password) {
     const response = await this.api(`/users`, 'GET', null, true, {emailAddress, password});
     if (response.status === 200) {
