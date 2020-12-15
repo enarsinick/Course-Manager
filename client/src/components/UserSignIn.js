@@ -74,7 +74,6 @@ export default class UserSignIn extends Component {
           this.setState(() => {
             return {errors: ['Sign in was unsuccessful']};
           })
-          this.state.history.goBack();
         } else {
           this.props.history.push(from);
           console.log(`Successfully logged in ${emailAddress}`);

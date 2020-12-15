@@ -1,6 +1,6 @@
 const NotFound = () => {
     return (
-        <div class="bounds course--detail">
+        <div className="bounds course--detail">
           <h1>Not Found</h1>
           <p>Sorry! We couldn't find the page you're looking for.</p>
         </div>
