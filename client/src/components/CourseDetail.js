@@ -25,7 +25,6 @@ export default class CourseDetail extends Component {
           
         } else {
           // If no details are found, redirect user
-          console.log(response.errors)
           this.props.history.push('/notfound');
         }
       })
