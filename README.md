@@ -4,35 +4,61 @@ This web application uses React for the client and then a REST API for the datab
 
 A login and sign up functionality has also been implemented, in order for users to create and delete their own courses, and not be able to delete another users course etc.
 
+![](client/src/images/project_image_3.jpg)
+
+![](client/src/images/project_image_2.jpg)
+
+![](client/src/images/feature_image.jpg)
+
 ## How to use the project
 
 After downloading or cloning the repo, you will need to open the project in your terminal and ensure that have Node.js (version 10 or lower) and NPM installed. Once in the route folder, navigate to the 'api' folder.
 
-### `cd api`
+```
+cd api
+```
 
 Install all of the dependencies for the REST API using the following command:
 
-### `npm install`
+```
+npm install
+```
 
 Second, seed the SQLite database.
 
-### `npm run seed`
+```
+npm run seed
+```
 
 And lastly, start the application
 
-### `npm start`
+```
+npm start
+```
 
 Open a new terminal and ensure you're in the route folder again, and now navigate to the 'client' folder. 
 
-### `cd client`
+```
+cd client
+```
 
 Install all of the dependencies for the client using the following command:
 
-### `npm install`
+```
+npm install
+```
 
 And finally, start the application
 
-### `npm start`
-
+```
+npm start
+```
 
 The application should start up using port 3000 in your browser.
+
+## Built With
+
+* [NodeJS](https://nodejs.org/en/)
+* [Express](https://expressjs.com/)
+* [React](https://reactjs.org/)
+* [SQLite](https://www.sqlite.org/index.html)
