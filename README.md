@@ -4,6 +4,8 @@ This web application uses React for the client and then a REST API for the datab
 
 A login and sign up functionality has also been implemented, in order for users to create and delete their own courses, and not be able to delete another users course etc.
 
+You can view the [live version here.](https://lit-bayou-71042.herokuapp.com/)
+
 ![](client/src/images/project_image_3.jpg)
 
 ![](client/src/images/project_image_2.jpg)
